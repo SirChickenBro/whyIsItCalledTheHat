@@ -17,7 +17,7 @@ MonoBehaviour:
     Answers:
     - QuestionId: Pace
       Answers:
-      - Slow
+      - Fast
     - QuestionId: Cheating
       Answers:
       - CheatingImportant
@@ -33,4 +33,4 @@ MonoBehaviour:
   Preset: 1
   SelectedSolutions:
     SelectedHostingModel: 2
-    SelectedNetcodeSolution: 1
+    SelectedNetcodeSolution: 2
