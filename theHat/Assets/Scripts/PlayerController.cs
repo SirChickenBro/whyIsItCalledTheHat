@@ -25,8 +25,10 @@ public class PlayerController : MonoBehaviourPunCallbacks, IPunObservable
         if(PhotonNetwork.IsMasterClient)
         {
             if (curHatTime >= GameManager.instance.timeToWin && !GameManager.instance.gameEnded)
+            {
                 GameManager.instance.gameEnded = true;
-            GameManager.instance.photonView.RPC("WinGame", RpcTarget.All, id);
+                GameManager.instance.photonView.RPC("WinGame", RpcTarget.All, id);
+            }
         }
 
 
