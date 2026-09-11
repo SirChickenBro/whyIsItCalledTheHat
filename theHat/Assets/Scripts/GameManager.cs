@@ -60,11 +60,12 @@ public class GameManager : MonoBehaviourPunCallbacks
     }
 
     [PunRPC]
-    public void GiveHat(int playerId, bool initialGive)
+    public void GiveHat(int playerId, bool initialGive = false)
     {
         if (!initialGive)
             GetPlayer(playerWithHat).SetHat(false);
 
+        Debug.Log("le ID de player: "+playerId);
         playerWithHat = playerId;
         GetPlayer(playerId).SetHat(true);
         hatPickupTime = Time.time;
