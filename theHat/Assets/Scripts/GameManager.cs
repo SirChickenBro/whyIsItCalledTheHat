@@ -56,7 +56,7 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     public PlayerController GetPlayer(GameObject playerObject)
     {
-        return players.First(x => gameObject == playerObject);
+        return players.First(x => x.gameObject == playerObject);
     }
 
     [PunRPC]
