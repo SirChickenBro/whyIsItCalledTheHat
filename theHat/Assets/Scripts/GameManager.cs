@@ -65,7 +65,6 @@ public class GameManager : MonoBehaviourPunCallbacks
         if (!initialGive)
             GetPlayer(playerWithHat).SetHat(false);
 
-        Debug.Log("le ID de player: "+playerId);
         playerWithHat = playerId;
         GetPlayer(playerId).SetHat(true);
         hatPickupTime = Time.time;
@@ -94,4 +93,5 @@ public class GameManager : MonoBehaviourPunCallbacks
         PhotonNetwork.LeaveRoom();
         NetworkManager.instance.ChangeScene("Menu");
     }
+
 }

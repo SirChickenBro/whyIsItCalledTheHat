@@ -23,6 +23,7 @@ public class GameUI : MonoBehaviour
     void Update()
     {
         UpdatePlayerUI();
+
     }
 
     void InitializePlayerUI()
