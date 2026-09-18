@@ -6,18 +6,11 @@ using Photon.Pun;
 
 public class ChatBox : MonoBehaviourPunCallbacks
 {
-    List<string> chatLogs = new List<string> {"","","",""};
+    List<string> chatLogs = new List<string> { "", "", "", "" };
 
     [Header("Chat Boxes")]
     public TextMeshProUGUI[] chatText;
     public GameObject _ChatBoxContainer;
-
-    public static ChatBox instance;
-
-    void Awake()
-    {
-        instance = this;
-    }
 
     void Start()
     {
@@ -40,20 +33,30 @@ public class ChatBox : MonoBehaviourPunCallbacks
     public void OnMessageEnter(TMP_InputField message)
     {
 
-            chatLogs.RemoveAt(0);
-            chatLogs.Add(message.text);
+        chatLogs.RemoveAt(0);
+        chatLogs.Add(message.text);
 
-            photonView.RPC("UpdateChatPanel", RpcTarget.All);
+        for (int x = 0; x < 4; x++)
+        {
+            photonView.RPC("SyncChatLogs", RpcTarget.All, x, chatLogs[x]);
+        }
+
+        photonView.RPC("UpdateChatPanel", RpcTarget.All);
     }
 
     [PunRPC]
     public void UpdateChatPanel()
     {
-        for (int x = 0; x<4; x++)
+        for (int x = 0; x < 4; x++)
         {
             chatText[x].text = chatLogs[x];
         }
     }
 
+    [PunRPC]
+    public void SyncChatLogs(int x, string str)
+    {
+            chatLogs[x] = str;
+    }
 
 }

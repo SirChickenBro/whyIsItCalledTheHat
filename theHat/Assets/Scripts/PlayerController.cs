@@ -101,7 +101,6 @@ public class PlayerController : MonoBehaviourPunCallbacks, IPunObservable
                 if (GameManager.instance.CanGetHat())
                 {
                     GameManager.instance.photonView.RPC("GiveHat", RpcTarget.All, id, false);
-                    Debug.Log("le ID de player: " + id);
                 }
             }
         }

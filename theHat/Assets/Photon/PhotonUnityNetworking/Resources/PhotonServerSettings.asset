@@ -43,6 +43,9 @@ MonoBehaviour:
   - WinGame
   - ChangeScene
   - UpdateChatPanel
+  - OnMessageEnter
+  - SyncLogs
+  - SyncChatLogs
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 0
